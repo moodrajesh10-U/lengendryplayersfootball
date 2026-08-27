@@ -58,7 +58,7 @@ h1{font-size:clamp(34px,8vw,60px);margin:12px}.subtitle{color:#d9f2df;font-size:
 <div class="container">
 <section id="startPage" class="page active"><div class="start-card">
 <div class="football-icon">⚽</div><h1>FOOTBALL GUESS</h1>
-<p class="subtitle">Can you identify the football stars?<br>Guess their nationality and club!</p>
+<p class="subtitle">150 football players in the database!<br>Each match gives you 15 unique random players. Guess their nationality and club!</p>
 <button class="main-btn" onclick="startGame()">KICK OFF ⚽</button>
 </div></section>
 
@@ -91,24 +91,156 @@ UPDATED VERSION — IMPORTANT FEATURES
 */
 
 const players=[
-{name:"Lionel Messi",nation:"Argentina",club:"Inter Miami",images:[
-"https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg"]},
-{name:"Cristiano Ronaldo",nation:"Portugal",club:"Al Nassr",images:[
-"https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Cristiano_Ronaldo_2018.jpg"]},
-{name:"Kylian Mbappé",nation:"France",club:"Real Madrid",images:[
-"https://upload.wikimedia.org/wikipedia/commons/2/21/Kylian_Mbapp%C3%A9_2018.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Kylian_Mbapp%C3%A9_2018.jpg"]},
-{name:"Erling Haaland",nation:"Norway",club:"Manchester City",images:[
-"https://upload.wikimedia.org/wikipedia/commons/a/a1/Erling_Haaland_2023.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Erling_Haaland_2023.jpg"]},
-{name:"Mohamed Salah",nation:"Egypt",club:"Liverpool",images:[
-"https://upload.wikimedia.org/wikipedia/commons/9/9f/Mohamed_Salah_2018.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Mohamed_Salah_2018.jpg"]},
-{name:"Harry Kane",nation:"England",club:"Bayern Munich",images:[
-"https://upload.wikimedia.org/wikipedia/commons/5/5d/Harry_Kane_2018.jpg",
-"https://commons.wikimedia.org/wiki/Special:FilePath/Harry_Kane_2018.jpg"]}
+{name:'Lionel Messi',nation:'Argentina',club:'Inter Miami',images:['https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg', 'https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg']},
+{name:'Cristiano Ronaldo',nation:'Portugal',club:'Al Nassr',images:['https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg', 'https://commons.wikimedia.org/wiki/Special:FilePath/Cristiano_Ronaldo_2018.jpg']},
+{name:'Kylian Mbappé',nation:'France',club:'Real Madrid',images:['https://upload.wikimedia.org/wikipedia/commons/2/21/Kylian_Mbapp%C3%A9_2018.jpg', 'https://commons.wikimedia.org/wiki/Special:FilePath/Kylian_Mbapp%C3%A9_2018.jpg']},
+{name:'Erling Haaland',nation:'Norway',club:'Manchester City',images:['https://upload.wikimedia.org/wikipedia/commons/a/a1/Erling_Haaland_2023.jpg', 'https://commons.wikimedia.org/wiki/Special:FilePath/Erling_Haaland_2023.jpg']},
+{name:'Mohamed Salah',nation:'Egypt',club:'Liverpool',images:['https://upload.wikimedia.org/wikipedia/commons/9/9f/Mohamed_Salah_2018.jpg', 'https://commons.wikimedia.org/wiki/Special:FilePath/Mohamed_Salah_2018.jpg']},
+{name:'Harry Kane',nation:'England',club:'Bayern Munich',images:['https://upload.wikimedia.org/wikipedia/commons/5/5d/Harry_Kane_2018.jpg', 'https://commons.wikimedia.org/wiki/Special:FilePath/Harry_Kane_2018.jpg']},
+{name:'Vinícius Júnior',nation:'Brazil',club:'Real Madrid',images:[]},
+{name:'Jude Bellingham',nation:'England',club:'Real Madrid',images:[]},
+{name:'Kevin De Bruyne',nation:'Belgium',club:'Manchester City',images:[]},
+{name:'Robert Lewandowski',nation:'Poland',club:'Barcelona',images:[]},
+{name:'Lamine Yamal',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Neymar',nation:'Brazil',club:'Santos',images:[]},
+{name:'Pedri',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Bukayo Saka',nation:'England',club:'Arsenal',images:[]},
+{name:'Virgil van Dijk',nation:'Netherlands',club:'Liverpool',images:[]},
+{name:'Son Heung-min',nation:'South Korea',club:'Los Angeles FC',images:[]},
+{name:'Bruno Fernandes',nation:'Portugal',club:'Manchester United',images:[]},
+{name:'Rodri',nation:'Spain',club:'Manchester City',images:[]},
+{name:'Luka Modrić',nation:'Croatia',club:'AC Milan',images:[]},
+{name:'Antoine Griezmann',nation:'France',club:'Atlético Madrid',images:[]},
+{name:'Phil Foden',nation:'England',club:'Manchester City',images:[]},
+{name:'Declan Rice',nation:'England',club:'Arsenal',images:[]},
+{name:'Cole Palmer',nation:'England',club:'Chelsea',images:[]},
+{name:'Martin Ødegaard',nation:'Norway',club:'Arsenal',images:[]},
+{name:'Bernardo Silva',nation:'Portugal',club:'Manchester City',images:[]},
+{name:'João Cancelo',nation:'Portugal',club:'Al-Hilal',images:[]},
+{name:'Rúben Dias',nation:'Portugal',club:'Manchester City',images:[]},
+{name:'Rafael Leão',nation:'Portugal',club:'AC Milan',images:[]},
+{name:'Victor Osimhen',nation:'Nigeria',club:'Galatasaray',images:[]},
+{name:'Khvicha Kvaratskhelia',nation:'Georgia',club:'Paris Saint-Germain',images:[]},
+{name:'Ousmane Dembélé',nation:'France',club:'Paris Saint-Germain',images:[]},
+{name:'Achraf Hakimi',nation:'Morocco',club:'Paris Saint-Germain',images:[]},
+{name:'Gianluigi Donnarumma',nation:'Italy',club:'Manchester City',images:[]},
+{name:'Thibaut Courtois',nation:'Belgium',club:'Real Madrid',images:[]},
+{name:'Mike Maignan',nation:'France',club:'AC Milan',images:[]},
+{name:'Alisson Becker',nation:'Brazil',club:'Liverpool',images:[]},
+{name:'Ederson',nation:'Brazil',club:'Fenerbahçe',images:[]},
+{name:'Manuel Neuer',nation:'Germany',club:'Bayern Munich',images:[]},
+{name:'Marc-André ter Stegen',nation:'Germany',club:'Barcelona',images:[]},
+{name:'Jan Oblak',nation:'Slovenia',club:'Atlético Madrid',images:[]},
+{name:'Federico Valverde',nation:'Uruguay',club:'Real Madrid',images:[]},
+{name:'Eduardo Camavinga',nation:'France',club:'Real Madrid',images:[]},
+{name:'Aurélien Tchouaméni',nation:'France',club:'Real Madrid',images:[]},
+{name:'Dani Carvajal',nation:'Spain',club:'Real Madrid',images:[]},
+{name:'Trent Alexander-Arnold',nation:'England',club:'Real Madrid',images:[]},
+{name:'Antonio Rüdiger',nation:'Germany',club:'Real Madrid',images:[]},
+{name:'Éder Militão',nation:'Brazil',club:'Real Madrid',images:[]},
+{name:'David Alaba',nation:'Austria',club:'Real Madrid',images:[]},
+{name:'Frenkie de Jong',nation:'Netherlands',club:'Barcelona',images:[]},
+{name:'Gavi',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Raphinha',nation:'Brazil',club:'Barcelona',images:[]},
+{name:'Ferran Torres',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Alejandro Balde',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Ronald Araújo',nation:'Uruguay',club:'Barcelona',images:[]},
+{name:'Pau Cubarsí',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Dani Olmo',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Marcus Rashford',nation:'England',club:'Barcelona',images:[]},
+{name:'Fermín López',nation:'Spain',club:'Barcelona',images:[]},
+{name:'Robert Sánchez',nation:'Spain',club:'Chelsea',images:[]},
+{name:'Enzo Fernández',nation:'Argentina',club:'Chelsea',images:[]},
+{name:'Moisés Caicedo',nation:'Ecuador',club:'Chelsea',images:[]},
+{name:'Reece James',nation:'England',club:'Chelsea',images:[]},
+{name:'Wesley Fofana',nation:'France',club:'Chelsea',images:[]},
+{name:'Christopher Nkunku',nation:'France',club:'AC Milan',images:[]},
+{name:'Nicolas Jackson',nation:'Senegal',club:'Bayern Munich',images:[]},
+{name:'Malo Gusto',nation:'France',club:'Chelsea',images:[]},
+{name:'Roméo Lavia',nation:'Belgium',club:'Chelsea',images:[]},
+{name:'Joško Gvardiol',nation:'Croatia',club:'Manchester City',images:[]},
+{name:'Jérémy Doku',nation:'Belgium',club:'Manchester City',images:[]},
+{name:'Savinho',nation:'Brazil',club:'Manchester City',images:[]},
+{name:'Jack Grealish',nation:'England',club:'Everton',images:[]},
+{name:'Omar Marmoush',nation:'Egypt',club:'Manchester City',images:[]},
+{name:'John Stones',nation:'England',club:'Manchester City',images:[]},
+{name:'Mateo Kovačić',nation:'Croatia',club:'Manchester City',images:[]},
+{name:'Dominik Szoboszlai',nation:'Hungary',club:'Liverpool',images:[]},
+{name:'Alexis Mac Allister',nation:'Argentina',club:'Liverpool',images:[]},
+{name:'Luis Díaz',nation:'Colombia',club:'Bayern Munich',images:[]},
+{name:'Cody Gakpo',nation:'Netherlands',club:'Liverpool',images:[]},
+{name:'Andrew Robertson',nation:'Scotland',club:'Liverpool',images:[]},
+{name:'Ibrahima Konaté',nation:'France',club:'Liverpool',images:[]},
+{name:'Ryan Gravenberch',nation:'Netherlands',club:'Liverpool',images:[]},
+{name:'Darwin Núñez',nation:'Uruguay',club:'Al-Hilal',images:[]},
+{name:'Diogo Jota',nation:'Portugal',club:'Liverpool',images:[]},
+{name:'Alexander Isak',nation:'Sweden',club:'Liverpool',images:[]},
+{name:'Florian Wirtz',nation:'Germany',club:'Liverpool',images:[]},
+{name:'Kai Havertz',nation:'Germany',club:'Arsenal',images:[]},
+{name:'Gabriel Martinelli',nation:'Brazil',club:'Arsenal',images:[]},
+{name:'Gabriel Magalhães',nation:'Brazil',club:'Arsenal',images:[]},
+{name:'William Saliba',nation:'France',club:'Arsenal',images:[]},
+{name:'Mikel Merino',nation:'Spain',club:'Arsenal',images:[]},
+{name:'Ben White',nation:'England',club:'Arsenal',images:[]},
+{name:'Riccardo Calafiori',nation:'Italy',club:'Arsenal',images:[]},
+{name:'Viktor Gyökeres',nation:'Sweden',club:'Arsenal',images:[]},
+{name:'Matthijs de Ligt',nation:'Netherlands',club:'Manchester United',images:[]},
+{name:'Lisandro Martínez',nation:'Argentina',club:'Manchester United',images:[]},
+{name:'Kobbie Mainoo',nation:'England',club:'Manchester United',images:[]},
+{name:'Amad Diallo',nation:'Ivory Coast',club:'Manchester United',images:[]},
+{name:'Casemiro',nation:'Brazil',club:'Manchester United',images:[]},
+{name:'Joshua Zirkzee',nation:'Netherlands',club:'Manchester United',images:[]},
+{name:'Matheus Cunha',nation:'Brazil',club:'Manchester United',images:[]},
+{name:'Paul Pogba',nation:'France',club:'Monaco',images:[]},
+{name:'Zlatan Ibrahimović',nation:'Sweden',club:'Retired',images:[]},
+{name:'Thierry Henry',nation:'France',club:'Retired',images:[]},
+{name:'Zinedine Zidane',nation:'France',club:'Retired',images:[]},
+{name:'Ronaldinho',nation:'Brazil',club:'Retired',images:[]},
+{name:'Ronaldo Nazário',nation:'Brazil',club:'Retired',images:[]},
+{name:'Kaká',nation:'Brazil',club:'Retired',images:[]},
+{name:'David Beckham',nation:'England',club:'Retired',images:[]},
+{name:'Steven Gerrard',nation:'England',club:'Retired',images:[]},
+{name:'Frank Lampard',nation:'England',club:'Retired',images:[]},
+{name:'Wayne Rooney',nation:'England',club:'Retired',images:[]},
+{name:'Andrea Pirlo',nation:'Italy',club:'Retired',images:[]},
+{name:'Francesco Totti',nation:'Italy',club:'Retired',images:[]},
+{name:'Alessandro Del Piero',nation:'Italy',club:'Retired',images:[]},
+{name:'Xavi',nation:'Spain',club:'Retired',images:[]},
+{name:'Andrés Iniesta',nation:'Spain',club:'Retired',images:[]},
+{name:'Carles Puyol',nation:'Spain',club:'Retired',images:[]},
+{name:'Sergio Ramos',nation:'Spain',club:'Monterrey',images:[]},
+{name:'Iker Casillas',nation:'Spain',club:'Retired',images:[]},
+{name:'Gerard Piqué',nation:'Spain',club:'Retired',images:[]},
+{name:'Arjen Robben',nation:'Netherlands',club:'Retired',images:[]},
+{name:'Wesley Sneijder',nation:'Netherlands',club:'Retired',images:[]},
+{name:'Ruud van Nistelrooy',nation:'Netherlands',club:'Retired',images:[]},
+{name:'Clarence Seedorf',nation:'Netherlands',club:'Retired',images:[]},
+{name:'Ruud Gullit',nation:'Netherlands',club:'Retired',images:[]},
+{name:'Pavel Nedvěd',nation:'Czech Republic',club:'Retired',images:[]},
+{name:'Gianluigi Buffon',nation:'Italy',club:'Retired',images:[]},
+{name:'Fabio Cannavaro',nation:'Italy',club:'Retired',images:[]},
+{name:'Paolo Maldini',nation:'Italy',club:'Retired',images:[]},
+{name:'Franco Baresi',nation:'Italy',club:'Retired',images:[]},
+{name:'Didier Drogba',nation:'Ivory Coast',club:'Retired',images:[]},
+{name:"Samuel Eto'o",nation:'Cameroon',club:'Retired',images:[]},
+{name:'Yaya Touré',nation:'Ivory Coast',club:'Retired',images:[]},
+{name:'George Weah',nation:'Liberia',club:'Retired',images:[]},
+{name:'Sadio Mané',nation:'Senegal',club:'Al Nassr',images:[]},
+{name:'Riyad Mahrez',nation:'Algeria',club:'Al-Ahli',images:[]},
+{name:'Hakim Ziyech',nation:'Morocco',club:'Al-Duhail',images:[]},
+{name:'Kalidou Koulibaly',nation:'Senegal',club:'Al-Hilal',images:[]},
+{name:'Victor Boniface',nation:'Nigeria',club:'Werder Bremen',images:[]},
+{name:'Ademola Lookman',nation:'Nigeria',club:'Atalanta',images:[]},
+{name:'Thomas Partey',nation:'Ghana',club:'Villarreal',images:[]},
+{name:'André Onana',nation:'Cameroon',club:'Trabzonspor',images:[]},
+{name:'Christian Pulisic',nation:'United States',club:'AC Milan',images:[]},
+{name:'Weston McKennie',nation:'United States',club:'Juventus',images:[]},
+{name:'Sergiño Dest',nation:'United States',club:'PSV',images:[]},
+{name:'Alphonso Davies',nation:'Canada',club:'Bayern Munich',images:[]},
+{name:'Jonathan David',nation:'Canada',club:'Juventus',images:[]},
+{name:'Hirving Lozano',nation:'Mexico',club:'San Diego FC',images:[]},
+{name:'Julián Álvarez',nation:'Argentina',club:'Atlético Madrid',images:[]},
+{name:'Lautaro Martínez',nation:'Argentina',club:'Inter Milan',images:[]}
 ];
 
 let score=0,streak=0,currentIndex=0,gamePlayers=[],nationAnswered=false,clubAnswered=false,audioContext;
@@ -137,8 +269,21 @@ function speak(text){
 }
 function setCommentary(text){document.getElementById("commentaryText").textContent=text}
 
+let previousSessionLastPlayer = null;
+
 function startGame(){
- score=0;streak=0;currentIndex=0;gamePlayers=shuffle([...players]);
+ score=0;streak=0;currentIndex=0;
+
+ // Select 15 UNIQUE players from the 150-player database.
+ // A player can never repeat in the same game.
+ gamePlayers=shuffle([...players]).slice(0,15);
+
+ // Avoid the same player appearing first immediately after the previous game.
+ if(previousSessionLastPlayer && gamePlayers.length > 1 &&
+    gamePlayers[0].name === previousSessionLastPlayer.name){
+   [gamePlayers[0],gamePlayers[1]]=[gamePlayers[1],gamePlayers[0]];
+ }
+
  getAudioContext();showPage("gamePage");loadPlayer();
 }
 function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active")}
@@ -156,10 +301,19 @@ function fallbackSVG(player){
 function loadPlayerImage(player){
  const img=document.getElementById("playerImage"),loading=document.getElementById("imageLoading");
  let source=0;loading.style.display="grid";
+ const sources = Array.isArray(player.images) ? player.images : [];
+
  function tryNext(){
-  if(source>=player.images.length){img.onerror=null;img.onload=null;img.src=fallbackSVG(player);loading.style.display="none";return}
-  img.src=player.images[source++]; 
+  if(source>=sources.length){
+    img.onerror=null;
+    img.onload=null;
+    img.src=fallbackSVG(player);
+    loading.style.display="none";
+    return;
+  }
+  img.src=sources[source++];
  }
+
  img.onload=()=>loading.style.display="none";
  img.onerror=tryNext;
  tryNext();
@@ -216,7 +370,13 @@ function showWrong(text,icon){
  setTimeout(()=>document.getElementById("wrongOverlay").classList.remove("active"),1500);
 }
 function checkFinished(){if(nationAnswered&&clubAnswered)setTimeout(()=>document.getElementById("nextBtn").style.display="inline-block",1900)}
-function nextPlayer(){currentIndex++;if(currentIndex>=gamePlayers.length)showResults();else loadPlayer()}
+function nextPlayer(){
+ currentIndex++;
+ if(currentIndex>=gamePlayers.length){
+   previousSessionLastPlayer=gamePlayers[gamePlayers.length-1];
+   showResults();
+ }else loadPlayer();
+}
 function updateScore(){document.getElementById("score").textContent=score;document.getElementById("streak").textContent=streak}
 function updateProgress(){document.getElementById("progressBar").style.width=(currentIndex/gamePlayers.length*100)+"%"}
 function showResults(){
